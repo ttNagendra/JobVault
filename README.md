@@ -189,27 +189,4 @@ Frontend (JobDetails.jsx)
 
 ---
 
-## 🚢 Deployment
 
-### Backend → [Render](https://render.com)
-
-1. Push backend to a Git repo.
-2. Create a **Web Service** on Render.
-3. Set **Build Command**: `npm install`
-4. Set **Start Command**: `node server.js`
-5. Add all env variables from `.env.example`.
-6. Set `FRONTEND_URL` to your Vercel frontend URL.
-
-### Frontend → [Vercel](https://vercel.com)
-
-1. Push frontend to a Git repo.
-2. Import project on Vercel.
-3. Set **Framework Preset**: Vite.
-4. Add env variable: `VITE_API_URL=https://your-render-app.onrender.com/api/v1`
-5. Deploy.
-
----
-
-## 📝 License
-
-MIT
