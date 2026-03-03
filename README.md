@@ -190,3 +190,11 @@ Frontend (JobDetails.jsx)
 ---
 
 
+<<<<<<< Updated upstream
+=======
+---
+
+## 📝 License
+
+MIT
+>>>>>>> Stashed changes
