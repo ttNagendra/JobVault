@@ -75,12 +75,12 @@ export default function Login() {
 
                 <div className="grid grid-cols-2 gap-3">
                     <button type="button"
-                        onClick={() => setForm({ email: 'seeker@demo.com', password: '123456' })}
+                        onClick={() => setForm({ email: 'seeker1@gmail.com', password: '123456' })}
                         className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:border-primary-500 hover:text-primary-500 transition-all text-sm font-medium bg-white/50 dark:bg-white/5">
                         <FiUser className="text-emerald-500" /> Job Seeker
                     </button>
                     <button type="button"
-                        onClick={() => setForm({ email: 'recruiter@demo.com', password: '123456' })}
+                        onClick={() => setForm({ email: 'rohit@technova.com', password: '123456' })}
                         className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:border-accent-500 hover:text-accent-500 transition-all text-sm font-medium bg-white/50 dark:bg-white/5">
                         <FiBriefcase className="text-accent-500" /> Recruiter
                     </button>
