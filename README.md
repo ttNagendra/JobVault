@@ -14,7 +14,7 @@ A production-ready full-stack job portal built with **MongoDB**, **Express**, **
 - **Application Management** — apply, track, accept/reject
 - **Resume Upload** — PDF upload to Cloudinary via Multer (5MB limit, PDF-only validation)
 - **Resume Download** — Recruiters can download applicant resumes directly
-- **One-click Demo Login** — instant demo accounts for Job Seeker and Recruiter
+- **Demo Accounts** — try the app instantly with provided credentials
 - **Dark / Light Mode** — theme toggle with persistent preference
 - **Modern UI** — Tailwind CSS, glassmorphism, gradients, micro-animations
 - **Toast Notifications** — react-hot-toast
@@ -26,10 +26,10 @@ A production-ready full-stack job portal built with **MongoDB**, **Express**, **
 
 | Role | Email | Password |
 |------|-------|----------|
-| Job Seeker | `seeker1@gmail.com` | `123456` |
-| Recruiter | `rohit@technova.com` | `123456` |
+| Job Seeker | `demodevil@gmail.com` | `111111` |
+| Recruiter | `demodevil1@gmail.com` | `123456` |
 
-> Click the **Job Seeker** or **Recruiter** button on the login page for one-click demo login.
+> Use the credentials above on the login page to explore the app.
 
 ---
 
@@ -55,7 +55,7 @@ job/
 │   ├── models/          # User, Job, Application (Mongoose)
 │   ├── routes/          # RESTful route definitions
 │   ├── utils/           # ApiError, catchAsync, sendToken
-│   ├── seedDemoUsers.js # Seed demo accounts
+│   ├── seed.js          # Database seed script
 │   ├── server.js        # Express entry point
 │   └── .env.example
 ├── frontend/
@@ -116,14 +116,14 @@ npm install
 |----------|-------------|
 | `VITE_API_URL` | Backend API base URL |
 
-### 3. Seed Demo Accounts (Optional)
+### 3. Seed Database (Optional)
 
 ```bash
 cd backend
-node seedDemoUsers.js
+node seed.js
 ```
 
-This creates the two demo accounts (Job Seeker & Recruiter) used by the login page's quick-login buttons.
+This populates the database with sample data for testing.
 
 ### 4. Run
 

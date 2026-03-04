@@ -5,7 +5,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiMail, FiLock, FiArrowRight, FiUser, FiBriefcase } from 'react-icons/fi';
+import { FiMail, FiLock, FiArrowRight } from 'react-icons/fi';
 
 export default function Login() {
     const [form, setForm] = useState({ email: '', password: '' });
@@ -19,14 +19,6 @@ export default function Login() {
         e.preventDefault();
         setSubmitting(true);
         const ok = await login(form);
-        setSubmitting(false);
-        if (ok) navigate('/');
-    };
-
-    const handleDemoLogin = async (email, password) => {
-        setForm({ email, password });
-        setSubmitting(true);
-        const ok = await login({ email, password });
         setSubmitting(false);
         if (ok) navigate('/');
     };
@@ -78,20 +70,20 @@ export default function Login() {
 
                 <div className="relative my-6">
                     <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200 dark:border-gray-800" /></div>
-                    <div className="relative flex justify-center"><span className="px-3 bg-white dark:bg-[#0d1424] text-gray-400 dark:text-gray-600 text-xs">or try a demo account</span></div>
+                    <div className="relative flex justify-center"><span className="px-3 bg-white dark:bg-[#0d1424] text-gray-400 dark:text-gray-600 text-xs">demo credentials</span></div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3">
-                    <button type="button" disabled={submitting}
-                        onClick={() => handleDemoLogin('seeker1@gmail.com', '123456')}
-                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:border-primary-500 hover:text-primary-500 transition-all text-sm font-medium bg-white/50 dark:bg-white/5 disabled:opacity-50">
-                        <FiUser className="text-emerald-500" /> Job Seeker
-                    </button>
-                    <button type="button" disabled={submitting}
-                        onClick={() => handleDemoLogin('rohit@technova.com', '123456')}
-                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:border-accent-500 hover:text-accent-500 transition-all text-sm font-medium bg-white/50 dark:bg-white/5 disabled:opacity-50">
-                        <FiBriefcase className="text-accent-500" /> Recruiter
-                    </button>
+                <div className="grid grid-cols-2 gap-3 text-xs">
+                    <div className="rounded-xl border border-gray-200 dark:border-gray-700/50 bg-white/50 dark:bg-white/5 p-3 space-y-1">
+                        <p className="font-semibold text-emerald-500 mb-1.5">Job Seeker</p>
+                        <p className="text-gray-500 dark:text-gray-400"><span className="text-gray-400 dark:text-gray-600">Email:</span> demodevil@gmail.com</p>
+                        <p className="text-gray-500 dark:text-gray-400"><span className="text-gray-400 dark:text-gray-600">Pass:</span> 111111</p>
+                    </div>
+                    <div className="rounded-xl border border-gray-200 dark:border-gray-700/50 bg-white/50 dark:bg-white/5 p-3 space-y-1">
+                        <p className="font-semibold text-accent-500 mb-1.5">Recruiter</p>
+                        <p className="text-gray-500 dark:text-gray-400"><span className="text-gray-400 dark:text-gray-600">Email:</span> demodevil1@gmail.com</p>
+                        <p className="text-gray-500 dark:text-gray-400"><span className="text-gray-400 dark:text-gray-600">Pass:</span> 123456</p>
+                    </div>
                 </div>
 
                 <p className="text-gray-500 text-sm text-center mt-6">
