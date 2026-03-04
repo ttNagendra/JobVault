@@ -2,6 +2,8 @@
 
 A production-ready full-stack job portal built with **MongoDB**, **Express**, **React**, and **Node.js**.
 
+🔗 **Live Demo:** [JobVault on Vercel](https://jobvault.vercel.app) · **API:** Hosted on [Render](https://render.com)
+
 ---
 
 ## ✨ Features
@@ -12,7 +14,7 @@ A production-ready full-stack job portal built with **MongoDB**, **Express**, **
 - **Application Management** — apply, track, accept/reject
 - **Resume Upload** — PDF upload to Cloudinary via Multer (5MB limit, PDF-only validation)
 - **Resume Download** — Recruiters can download applicant resumes directly
-- **Demo Login** — One-click demo accounts for Job Seeker and Recruiter
+- **One-click Demo Login** — instant demo accounts for Job Seeker and Recruiter
 - **Dark / Light Mode** — theme toggle with persistent preference
 - **Modern UI** — Tailwind CSS, glassmorphism, gradients, micro-animations
 - **Toast Notifications** — react-hot-toast
@@ -24,10 +26,21 @@ A production-ready full-stack job portal built with **MongoDB**, **Express**, **
 
 | Role | Email | Password |
 |------|-------|----------|
-| Job Seeker | `seeker@demo.com` | `123456` |
-| Recruiter | `recruiter@demo.com` | `123456` |
+| Job Seeker | `seeker1@gmail.com` | `123456` |
+| Recruiter | `rohit@technova.com` | `123456` |
 
-> Click the **Job Seeker** or **Recruiter** button on the login page to auto-fill credentials.
+> Click the **Job Seeker** or **Recruiter** button on the login page for one-click demo login.
+
+---
+
+## 🌐 Deployment
+
+| Service | Platform | Notes |
+|---------|----------|-------|
+| **Backend API** | [Render](https://render.com) | Auto-deploys from `main` branch |
+| **Frontend** | [Vercel](https://vercel.com) | Vite build, auto-deploys from `main` branch |
+| **Database** | [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) | Free-tier cluster |
+| **File Storage** | [Cloudinary](https://cloudinary.com) | Resume PDFs stored in `jobportal/resumes` |
 
 ---
 
@@ -42,7 +55,7 @@ job/
 │   ├── models/          # User, Job, Application (Mongoose)
 │   ├── routes/          # RESTful route definitions
 │   ├── utils/           # ApiError, catchAsync, sendToken
-│   ├── seed.js          # Database seeder script
+│   ├── seedDemoUsers.js # Seed demo accounts
 │   ├── server.js        # Express entry point
 │   └── .env.example
 ├── frontend/
@@ -103,14 +116,14 @@ npm install
 |----------|-------------|
 | `VITE_API_URL` | Backend API base URL |
 
-### 3. Seed the Database (Optional)
+### 3. Seed Demo Accounts (Optional)
 
 ```bash
 cd backend
-npm run seed
+node seedDemoUsers.js
 ```
 
-This creates sample recruiters, job seekers (password: `123456`), 20 job listings, and sample applications.
+This creates the two demo accounts (Job Seeker & Recruiter) used by the login page's quick-login buttons.
 
 ### 4. Run
 
@@ -128,7 +141,7 @@ Open **http://localhost:5173** in your browser.
 
 ---
 
-## � Resume Upload Flow
+## 📤 Resume Upload Flow
 
 ```
 Frontend (JobDetails.jsx)
@@ -150,7 +163,7 @@ Frontend (JobDetails.jsx)
 
 ---
 
-## �📡 API Reference
+## 📡 API Reference
 
 | Endpoint | Method | Auth | Role | Description |
 |----------|--------|------|------|-------------|
@@ -185,16 +198,11 @@ Frontend (JobDetails.jsx)
 | **Auth** | JWT + httpOnly cookies + bcryptjs |
 | **File Upload** | Multer + multer-storage-cloudinary |
 | **Cloud Storage** | Cloudinary (PDF resumes) |
+| **Hosting** | Render (API) · Vercel (Frontend) |
 | **Notifications** | react-hot-toast |
 
----
-
-
-<<<<<<< Updated upstream
-=======
 ---
 
 ## 📝 License
 
 MIT
->>>>>>> Stashed changes
