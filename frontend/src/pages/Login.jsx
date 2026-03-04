@@ -23,6 +23,14 @@ export default function Login() {
         if (ok) navigate('/');
     };
 
+    const handleDemoLogin = async (email, password) => {
+        setForm({ email, password });
+        setSubmitting(true);
+        const ok = await login({ email, password });
+        setSubmitting(false);
+        if (ok) navigate('/');
+    };
+
     return (
         <div className="min-h-[calc(100vh-10rem)] flex items-center justify-center px-4 relative">
             <div className="orb orb-indigo w-[400px] h-[400px] -top-20 -left-20 animate-float" />
@@ -74,14 +82,14 @@ export default function Login() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
-                    <button type="button"
-                        onClick={() => setForm({ email: 'seeker1@gmail.com', password: '123456' })}
-                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:border-primary-500 hover:text-primary-500 transition-all text-sm font-medium bg-white/50 dark:bg-white/5">
+                    <button type="button" disabled={submitting}
+                        onClick={() => handleDemoLogin('seeker1@gmail.com', '123456')}
+                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:border-primary-500 hover:text-primary-500 transition-all text-sm font-medium bg-white/50 dark:bg-white/5 disabled:opacity-50">
                         <FiUser className="text-emerald-500" /> Job Seeker
                     </button>
-                    <button type="button"
-                        onClick={() => setForm({ email: 'rohit@technova.com', password: '123456' })}
-                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:border-accent-500 hover:text-accent-500 transition-all text-sm font-medium bg-white/50 dark:bg-white/5">
+                    <button type="button" disabled={submitting}
+                        onClick={() => handleDemoLogin('rohit@technova.com', '123456')}
+                        className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700/50 text-gray-700 dark:text-gray-300 hover:border-accent-500 hover:text-accent-500 transition-all text-sm font-medium bg-white/50 dark:bg-white/5 disabled:opacity-50">
                         <FiBriefcase className="text-accent-500" /> Recruiter
                     </button>
                 </div>
